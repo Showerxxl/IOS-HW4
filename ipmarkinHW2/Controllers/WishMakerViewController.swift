@@ -1,6 +1,9 @@
 import UIKit
 
 final class WishMakerViewController: UIViewController {
+    private let addWishButton: UIButton = UIButton(type: .system)
+    private let scheduleWishesButton: UIButton = UIButton(type: .system)
+    private let actionStack = UIStackView()
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -11,9 +14,21 @@ final class WishMakerViewController: UIViewController {
         configureTitle()
         configureDescription()
         configureSliders()
-        configureAddWishButton()
+        configureActionStack()
         setupConstraints()
         
+    }
+    private func configureActionStack() {
+        actionStack.axis = .vertical
+        view.addSubview(actionStack)
+        actionStack.spacing = Constants.spacing
+        for button in [addWishButton, scheduleWishesButton] {
+            actionStack.addArrangedSubview(button)
+        }
+        configureScheduleMissions()
+        configureAddWishButton()
+        actionStack.pinBottom(to: view, Constants.stackBottom)
+        actionStack.pinHorizontal(to: view, Constants.stackLeading)
     }
 
     private func configureTitle() {
@@ -66,11 +81,11 @@ final class WishMakerViewController: UIViewController {
         }
     }
     
-    private let addWishButton: UIButton = UIButton(type: .system)
+    
     private func configureAddWishButton() {
         view.addSubview(addWishButton)
         addWishButton.setHeight(Constants.buttonHeight)
-        addWishButton.pinBottom(to: view, Constants.buttonBottom)
+        addWishButton.pinBottom(to: scheduleWishesButton.topAnchor, Constants.dist)
         addWishButton.pinHorizontal(to: view, Constants.buttonSide)
         
         addWishButton.backgroundColor = .white
@@ -80,6 +95,19 @@ final class WishMakerViewController: UIViewController {
         
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
     }
+    
+    private func configureScheduleMissions() {
+        view.addSubview(scheduleWishesButton)
+        scheduleWishesButton.setHeight(Constants.buttonHeight)
+        scheduleWishesButton.pinBottom(to: view, Constants.buttonBottom)
+        scheduleWishesButton.pinHorizontal(to: view, Constants.buttonSide)
+        scheduleWishesButton.backgroundColor = .white
+        scheduleWishesButton.setTitleColor(.systemPink, for: .normal)
+        scheduleWishesButton.setTitle("Scchedule wish granting", for: .normal)
+        scheduleWishesButton.layer.cornerRadius = Constants.buttonRadius
+        
+    }
+    
     @objc
     private func addWishButtonPressed() {
         present(WishStoringViewController(), animated: true)

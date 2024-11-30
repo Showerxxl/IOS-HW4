@@ -73,7 +73,7 @@ final class AddWishCell: UITableViewCell {
     @objc private func addWishButtonTapped() {
         guard let wish = wishTextView.text, !wish.isEmpty else { return }
         addWish?(wish)
-        wishTextView.text = "" // Очищаем текстовое поле после добавления
+        wishTextView.text = "" 
     }
 }
 
