@@ -4,6 +4,7 @@ final class WishMakerViewController: UIViewController {
     private let addWishButton: UIButton = UIButton(type: .system)
     private let scheduleWishesButton: UIButton = UIButton(type: .system)
     private let actionStack = UIStackView()
+    private var currentColor: UIColor = UIColor.black
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -69,18 +70,27 @@ final class WishMakerViewController: UIViewController {
         
         sliderRed.valueChanged = { [weak self] value in
             red = CGFloat(value)
-            self?.view.backgroundColor = UIColor(red: CGFloat(value), green: green, blue: blue, alpha: Constants.transparency)
+            self?.updateUI(red: red, green: green, blue: blue)
         }
         sliderGreen.valueChanged = { [weak self] value in
             green = CGFloat(value)
-            self?.view.backgroundColor = UIColor(red: red, green: CGFloat(value), blue: blue, alpha: Constants.transparency)
+            self?.updateUI(red: red, green: green, blue: blue)
         }
         sliderBlue.valueChanged = { [weak self] value in
             blue = CGFloat(value)
-            self?.view.backgroundColor = UIColor(red: red, green: green, blue: CGFloat(value), alpha: Constants.transparency)
+            self?.updateUI(red: red, green: green, blue: blue)
         }
     }
     
+    private func updateUI(red: CGFloat, green: CGFloat, blue: CGFloat) {
+        let color = UIColor(red: red, green: green, blue: blue, alpha: Constants.transparency)
+        
+        view.backgroundColor = color
+        currentColor = color
+
+        addWishButton.setTitleColor(color, for: .normal)
+        scheduleWishesButton.setTitleColor(color, for: .normal)
+    }
     
     private func configureAddWishButton() {
         view.addSubview(addWishButton)
