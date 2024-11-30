@@ -31,5 +31,9 @@ enum Constants {
     
     static let spacing: CGFloat = 10
     static let stackLeading: CGFloat = 15
+    
+    static let collectionTop: CGFloat = 20
+    static let contentInset = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
+    
 }
 
