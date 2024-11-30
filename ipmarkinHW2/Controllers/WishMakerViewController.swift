@@ -5,6 +5,7 @@ final class WishMakerViewController: UIViewController {
     private let scheduleWishesButton: UIButton = UIButton(type: .system)
     private let actionStack = UIStackView()
     private var currentColor: UIColor = UIColor.black
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -115,13 +116,18 @@ final class WishMakerViewController: UIViewController {
         scheduleWishesButton.setTitleColor(.systemPink, for: .normal)
         scheduleWishesButton.setTitle("Scchedule wish granting", for: .normal)
         scheduleWishesButton.layer.cornerRadius = Constants.buttonRadius
-        
+        scheduleWishesButton.addTarget(self, action: #selector(scheduleWishButtonPressed), for: .touchUpInside)
     }
     
     @objc
     private func addWishButtonPressed() {
         present(WishStoringViewController(), animated: true)
     }
-
+    
+    @objc
+    private func scheduleWishButtonPressed() {
+        let vc = WishCalendarViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
