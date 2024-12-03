@@ -14,6 +14,9 @@
 		046A4D9F2CF87F180051E936 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4D9E2CF87F180051E936 /* UIView+Pin.swift */; };
 		048B9F222CFB4A0B000BE9E7 /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9F212CFB4A0B000BE9E7 /* AddWishCell.swift */; };
 		048B9F242CFB5FC0000BE9E7 /* WishCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9F232CFB5FC0000BE9E7 /* WishCalendarViewController.swift */; };
+		048B9F262CFB70B1000BE9E7 /* WishEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9F252CFB70B1000BE9E7 /* WishEventCell.swift */; };
+		048B9F282CFF2F64000BE9E7 /* WishEventCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9F272CFF2F64000BE9E7 /* WishEventCreationView.swift */; };
+		048B9F2A2CFF690F000BE9E7 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9F292CFF690F000BE9E7 /* CalendarManager.swift */; };
 		04BACD472CD178D000E6EFCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BACD462CD178D000E6EFCD /* AppDelegate.swift */; };
 		04BACD492CD178D000E6EFCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BACD482CD178D000E6EFCD /* SceneDelegate.swift */; };
 		04BACD4B2CD178D000E6EFCD /* WishMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BACD4A2CD178D000E6EFCD /* WishMakerViewController.swift */; };
@@ -51,6 +54,9 @@
 		046A4D9E2CF87F180051E936 /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		048B9F212CFB4A0B000BE9E7 /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
 		048B9F232CFB5FC0000BE9E7 /* WishCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCalendarViewController.swift; sourceTree = "<group>"; };
+		048B9F252CFB70B1000BE9E7 /* WishEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCell.swift; sourceTree = "<group>"; };
+		048B9F272CFF2F64000BE9E7 /* WishEventCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCreationView.swift; sourceTree = "<group>"; };
+		048B9F292CFF690F000BE9E7 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		04BACD432CD178D000E6EFCD /* ipmarkinHW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipmarkinHW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BACD462CD178D000E6EFCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BACD482CD178D000E6EFCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,10 +111,12 @@
 			isa = PBXGroup;
 			children = (
 				041E75D42CDF8B1600F99BD7 /* TitleView.swift */,
+				048B9F252CFB70B1000BE9E7 /* WishEventCell.swift */,
 				048B9F212CFB4A0B000BE9E7 /* AddWishCell.swift */,
 				041E75D62CDF8B3000F99BD7 /* DescriptionView.swift */,
 				041E75D82CDF8B5200F99BD7 /* SliderView.swift */,
 				04FF485F2CF8ACD90090D454 /* WrittenWishCell.swift */,
+				048B9F272CFF2F64000BE9E7 /* WishEventCreationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 				04BACD4A2CD178D000E6EFCD /* WishMakerViewController.swift */,
 				04FF485D2CF89F150090D454 /* WishStoringViewController.swift */,
 				048B9F232CFB5FC0000BE9E7 /* WishCalendarViewController.swift */,
+				048B9F292CFF690F000BE9E7 /* CalendarManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,8 +319,11 @@
 				041E75D92CDF8B5200F99BD7 /* SliderView.swift in Sources */,
 				04BACD472CD178D000E6EFCD /* AppDelegate.swift in Sources */,
 				048B9F222CFB4A0B000BE9E7 /* AddWishCell.swift in Sources */,
+				048B9F282CFF2F64000BE9E7 /* WishEventCreationView.swift in Sources */,
+				048B9F262CFB70B1000BE9E7 /* WishEventCell.swift in Sources */,
 				041E75D72CDF8B3000F99BD7 /* DescriptionView.swift in Sources */,
 				048B9F242CFB5FC0000BE9E7 /* WishCalendarViewController.swift in Sources */,
+				048B9F2A2CFF690F000BE9E7 /* CalendarManager.swift in Sources */,
 				041E75DB2CDF8BA800F99BD7 /* Constants.swift in Sources */,
 				04BACD492CD178D000E6EFCD /* SceneDelegate.swift in Sources */,
 				046A4D9F2CF87F180051E936 /* UIView+Pin.swift in Sources */,
