@@ -49,6 +49,7 @@ class WishEventCreationView: UIViewController {
         return button
     }()
     
+    
     private let startLabel: UILabel = {
            let label = UILabel()
        label.text = "Start"
@@ -74,6 +75,18 @@ class WishEventCreationView: UIViewController {
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
+   private enum Constants {
+       static let leftconstr: CGFloat = 16
+       static let rightconstr: CGFloat = 16
+       static let topconstr: CGFloat = 80
+       static let pickerleft: CGFloat = 60
+       static let endlabelheight: CGFloat = 35
+       static let createbuttontop: CGFloat = 150
+       static let descriptiontop: CGFloat = 50
+   }
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,38 +118,38 @@ class WishEventCreationView: UIViewController {
         container.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
         titleTextField.pinTop(to: container, 16)
-        titleTextField.pinLeft(to: container, 16)
-        titleTextField.pinRight(to: container, 16)
+        titleTextField.pinLeft(to: container, Constants.leftconstr)
+        titleTextField.pinRight(to: container, Constants.rightconstr)
 
 
-        descriptionTextField.pinTop(to: titleTextField, 50)
-        descriptionTextField.pinLeft(to: container, 16)
-        descriptionTextField.pinRight(to: container, 16)
+        descriptionTextField.pinTop(to: titleTextField, Constants.descriptiontop)
+        descriptionTextField.pinLeft(to: container, Constants.leftconstr)
+        descriptionTextField.pinRight(to: container, Constants.rightconstr)
         
         
-        startLabel.pinTop(to: descriptionTextField, 80)
-        startLabel.pinLeft(to: container, 16)
+        startLabel.pinTop(to: descriptionTextField, Constants.topconstr)
+        startLabel.pinLeft(to: container, Constants.leftconstr)
         startLabel.pinHeight(to: startDatePicker)
         
-        endLabel.pinTop(to: startLabel, 80)
-        endLabel.pinLeft(to: container, 16)
-        endLabel.setHeight(35)
+        endLabel.pinTop(to: startLabel, Constants.topconstr)
+        endLabel.pinLeft(to: container, Constants.leftconstr)
+        endLabel.setHeight(Constants.endlabelheight)
         endLabel.pinWidth(to: startLabel)
         endLabel.pinHeight(to: endDatePicker)
 
 
-        startDatePicker.pinTop(to: descriptionTextField, 80)
-        startDatePicker.pinLeft(to: startLabel, 60)
+        startDatePicker.pinTop(to: descriptionTextField, Constants.topconstr)
+        startDatePicker.pinLeft(to: startLabel, Constants.pickerleft)
 
 
-        endDatePicker.pinTop(to: startDatePicker, 80)
-        endDatePicker.pinLeft(to: endLabel, 60)
+        endDatePicker.pinTop(to: startDatePicker, Constants.topconstr)
+        endDatePicker.pinLeft(to: endLabel, Constants.pickerleft)
 
 
 
-        createButton.pinLeft(to: container, 16)
-        createButton.pinRight(to: container, 16)
-        createButton.pinTop(to: endLabel, 150)
+        createButton.pinLeft(to: container, Constants.leftconstr)
+        createButton.pinRight(to: container, Constants.rightconstr)
+        createButton.pinTop(to: endLabel, Constants.createbuttontop)
 
  
         createButton.addTarget(self, action: #selector(didTapCreateButton), for: .touchUpInside)
@@ -145,12 +158,17 @@ class WishEventCreationView: UIViewController {
     @objc private func didTapCreateButton() {
         let title = titleTextField.text?.isEmpty == true ? "No title" : titleTextField.text!
         let description = descriptionTextField.text?.isEmpty == true ? "No description" : descriptionTextField.text!
-
+        var startdate = startDatePicker.date
+        var enddate = endDatePicker.date
+        if startdate > enddate {
+            enddate = startdate
+        }
+                
         let event = WishEventCell.WishEventModel(
             title: title,
             description: description,
-            startDate: startDatePicker.date,
-            endDate: endDatePicker.date
+            startDate: startdate,
+            endDate: enddate
         )
         delegate?.didCreateEvent(event)
         dismiss(animated: true)
